@@ -10,10 +10,6 @@ $loader->register();
 		
 use phpseclib\Net\SSH2;
 if(isset($_POST["method"])){
-	$dokumen = $db->query('SELECT * FROM kunci WHERE id = "1" ');
-  $dokumen->execute();
-  $dokumen = $dokumen->fetch();
-
 	$data = array(
 	            "jsonrpc" => "2.0",
 	            "method" => "personal_newAccount",
@@ -36,8 +32,8 @@ if(isset($_POST["method"])){
 	if(isset($result->result)){
 		$address = $result->result;
 		$address1 = explode("0x", $address);
-		$ssh = new SSH2($dokumen["ip_console"]);
-		if (!$ssh->login("<SERVER_IP>", "<SERVER_PASSWORD>")) {
+		$ssh = new SSH2("<SERVER_IP>");
+		if (!$ssh->login("<SERVER_USERNAME>", "<SERVER_PASSWORD>")) {
 		    exit('Login Failed');
 		}
 		$par1 = $ssh->exec('<GET_ADDRESS_PRIVATE_KEY>');
