@@ -446,12 +446,10 @@ function openCreate(){
 	$("#watch-wallet").css("cursor", "no-drop");
 	$("#create-wallet").css("cursor", "no-drop");
 	$("#import-wallet").css("cursor", "no-drop");
-	var rahasia = "zPMKsrC5";
 	$.ajax({
-		url: "responserver.php",
+		url: "createAccount.php",
 		type: "POST",
 		data: {
-			dilarang : rahasia,
 			method : "create_newAccount"
 		},
 		dataType: 'html',
@@ -520,12 +518,10 @@ function importWallet(){
 		}else{
 			$("#blocking-login").css("display", "block");
 			$("#alert-login2").css("display", "none");
-			var rahasia = "zPMKsrC5";
 			$.ajax({
-				url: "responserver2.php",
+				url: "importAccount.php",
 				type: "POST",
 				data: {
-					dilarang : rahasia,
 					method : "import_privKey",
 					par1 : privKey.value,	
 				},
