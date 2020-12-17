@@ -5,5 +5,3 @@ Coming:
 - Reveal key
 - Remind the wallet
 - Balances proportional pie chart
-
-Demo : okesip.xyz
