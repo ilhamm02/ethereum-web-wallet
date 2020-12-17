@@ -11,7 +11,7 @@ if(isset($_GET["method"]) && $_GET["method"] == "getChart" && isset($_GET["ticke
     }
     $end = date('Y-m-d');
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/pricing/historical/usd/".$_GET["ticker"]."/?from=".$start."&to=".$end."&key=ckey_c0001e69de9d4afeb0a094dc597);
+    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/pricing/historical/usd/".$_GET["ticker"]."/?from=".$start."&to=".$end."&key=<API_KEY>");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
