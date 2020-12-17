@@ -11,7 +11,6 @@ $loader->register();
 use phpseclib\Net\SSH2;
 if(isset($_POST["method"]) && (isset($_POST["par1"]) OR isset($_POST["par2"]))){
 	$par1 = $_POST["par1"];
-	$ssh = new SSH2('62.171.140.49');
 
 	$data = array(
 	            "jsonrpc" => "2.0",
@@ -34,17 +33,16 @@ if(isset($_POST["method"]) && (isset($_POST["par1"]) OR isset($_POST["par2"]))){
 	$result = json_decode($result);
 	if(isset($result->result)){
 		$address = $result->result;
-		$address1 = explode("0x", $address);
-		$ssh = new SSH2($dokumen["ip_console"]);
-		if (!$ssh->login("<SERVER_IP>", "<SERVER_PASSWORD>")) {
+		$ssh = new SSH2("<SERVER_IP>");
+		if (!$ssh->login("<SERVER_USERNAME>", "<SERVER_PASSWORD>")) {
 		    exit('Login Failed');
 		}
 		$ssh->exec('mv <OLD_KEYSTORE_NAME> <NEW_KEYSTORE_NAME>");
 		setCookie("temporaryAddress", $address, strtotime("2050-01-19 03:14:07"));
 		echo "1";
 	}elseif(isset($result->error) && $result->error->message == "account already exists"){
-		$ssh = new SSH2($dokumen["ip_console"]);
-		if (!$ssh->login($dokumen["username_console"], $dokumen["password_console"])) {
+		$ssh = new SSH2("<SERVER_IP>");
+		if (!$ssh->login("<SERVER_USERNAME>", "<SERVER_PASSWORD>")) {
 		    exit('Login Failed');
 		}
 		$address = $ssh->exec('cat <KEYSTORE_NAME>');
