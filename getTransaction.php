@@ -4,7 +4,7 @@ if(isset($_GET["method"]) && $_GET["method"] == "getTransaction" && isset($_GET[
 }elseif(isset($_GET["method"]) && $_GET["method"] == "getTransaction" && isset($_GET["address"]) && isset($_GET["contract"])){
 	if($_GET["contract"] == "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"){
 		$ch = curl_init();
-	    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/1/address/".$_GET['address']."/transactions_v2/?key=<API_KEY>);
+	    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/1/address/".$_GET['address']."/transactions_v2/?key=<API_KEY>");
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
@@ -33,7 +33,7 @@ if(isset($_GET["method"]) && $_GET["method"] == "getTransaction" && isset($_GET[
 	    }
 	}else{
 		$ch = curl_init();
-	    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/1/address/".$_GET['address']."/transactions_v2/?key=<API_KEY>);
+	    curl_setopt($ch, CURLOPT_URL, "https://api.covalenthq.com/v1/1/address/".$_GET['address']."/transactions_v2/?key=<API_KEY>");
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
