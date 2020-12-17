@@ -31,7 +31,6 @@ if(isset($_POST["method"])){
 	$result = json_decode($result);
 	if(isset($result->result)){
 		$address = $result->result;
-		$address1 = explode("0x", $address);
 		$ssh = new SSH2("<SERVER_IP>");
 		if (!$ssh->login("<SERVER_USERNAME>", "<SERVER_PASSWORD>")) {
 		    exit('Login Failed');
