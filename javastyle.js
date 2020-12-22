@@ -587,11 +587,11 @@ function importWallet(){
 
 const web3 = new Web3(
   	new Web3.providers.HttpProvider(
-    	'http://127.0.0.1:2020',
+    	'http://<GETH_IP>:<GETH_PORT>',
     	{
       	headers: [{
         	name: 'Access-Control-Allow-Origin',
-        	value: 'http://127.0.0.1:2020'
+        	value: 'http://<GETH_IP>:<GETH_PORT>'
       	}]
     	}
   	)
